@@ -16,7 +16,7 @@ MVP functionality includes common use cases such as:
 
 ### Wireframes
 
-![wireframes](images/wireframe.jpg)
+[Wireframe](/images/wireframe.jpg)
 
 ### Architecture and Technologies
 
