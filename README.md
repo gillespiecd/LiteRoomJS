@@ -10,7 +10,7 @@ of photographs, all without having to use a desktop application such as Adobe Li
 MVP functionality includes common use cases such as:
 
 - [ ] Sliders to control brightness, contrast, saturation, etc.
-- [ ] Color filters for grayscale, sepia, etc.
+- [ ] Color filters for grayscale, sepia, etc. Reset filter button.
 - [ ] Import/export image
 - [ ] Toggle orientation between landscape and portrait
 
@@ -23,7 +23,7 @@ MVP functionality includes common use cases such as:
 LiteRoomJS plans to implement core image edit functionality using:
 
 - Vanilla JavaScript and `jquery` for slider, button, and filter logic
-- `CSS3` to manipulate image color, orientation, and aesthetic.
+- `CSS3 filters` and `HTML5 Canvas` to manipulate image color, orientation, and aesthetic.
 - Webpack to bundle and serve up JS files.
 
 In addition to the webpack entry file, there will be four .JS files:
@@ -39,12 +39,12 @@ In addition to the webpack entry file, there will be four .JS files:
 ### Implementation Timeline
 
 **Day 1**:
-- Set up project skeleton with webpack and node.js.
+- Set up project skeleton with webpack, canvas, and node.js.
 - Create front end HTML components
-- Basic styling of sliders, buttons, and default image
+- Basic styling of sliders, buttons, and default image canvas
 
 **Day 2**:
-- Implement CSS3 slider logic
+- Implement CSS3 filters and JS slider logic
 
 **Day 3**:
 - Filter logic for grayscale, sepia, etc.
