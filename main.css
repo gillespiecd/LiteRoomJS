@@ -1,0 +1,62 @@
+/* resets */
+body, section, div, h1, h2 {
+  margin: 0;
+  padding: 0;
+}
+
+.main {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  vertical-align: center;
+}
+
+/* left col */
+
+.left-col {
+  margin-left: 5%;
+  margin-right: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.left-col button {
+  margin-top: 5px;
+  padding: 10px;
+}
+
+/* mid col */
+
+.mid-col {
+  margin-right: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.image-upload {
+  display: flex;
+  justify-content: center;
+}
+
+/* right col */
+
+.right-col {
+  margin-right: 5%;
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  margin-top: 10px;
+}
+
+#canvas-image {
+  border: 1px solid black;
+  padding: 2px;
+  margin: 20px;
+}
