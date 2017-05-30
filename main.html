@@ -20,16 +20,14 @@
           </form>
           <button value="Upload">Upload Image</button>
           <canvas id="canvas-image" width="800" height="600"></canvas>
+          <button id="reset-btn">Reset Filters</button>
           <a id="download-link" download="image.png" href="#"><button>Download Image</button></a>
         </section>
         <section class="right-col">
           <h2>Sliders</h2>
-          <form class="right-col">
-            <input type="range">Contrast</input>
-            <input type="range">Brightness</input>
+            <input id="contrast" type="range" min="0" max="100">Contrast</input>
+            <input id="brightness" type="range" min="0" max="100">Brightness</input>
             <input type="range">Saturation</input>
-            <input type="reset">
-          </form>
         </section>
       </div>
   </body>

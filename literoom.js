@@ -92,8 +92,19 @@ class ImageCanvas {
     this.image = image;
     this.canvas = document.querySelector('canvas');
     this.ctx = this.canvas.getContext('2d');
+    this.filters = "";
     this.drawCanvas();
     this.downloadImage();
+    this.resetCanvas();
+  }
+
+  resetCanvas() {
+    const resetButton = document.getElementById('reset-btn');
+    const self = this;
+    resetButton.onclick = function() {
+      self.filters = "";
+      self.drawCanvas();
+    };
   }
 
   drawCanvas(filter = "") {
@@ -104,13 +115,20 @@ class ImageCanvas {
       const height = self.image.naturalWidth;
       self.ctx.canvas.width  = width / 2;
       self.ctx.canvas.height = height / 2;
-      self.ctx.filter = filter;
-      self.ctx.drawImage(imageObj, 0, 0);
+      // apply filters
+      self.applyFilter(imageObj, filter);
+      self.ctx.save();
     };
     imageObj.crossOrigin = 'anonymous';
     imageObj.src = this.image.src;
   }
 
+  applyFilter(img, filter) {
+    this.filters += ` ${filter}`;
+    this.ctx.filter = this.filters;
+    console.log(this.filters);
+    this.ctx.drawImage(img, 0, 0);
+  }
 
   downloadImage() {
     const downloadLink = document.getElementById('download-link');
@@ -142,13 +160,15 @@ class Filters {
   addListeners() {
     this.blackWhiteButton();
     this.sepiaButton();
+    this.contrastSlider();
+    this.brightnessSlider();
   }
 
   blackWhiteButton() {
     const self = this;
     const blackWhiteButton = document.getElementById('black-white');
     blackWhiteButton.onclick = function() {
-      self.canvas.drawCanvas("grayscale(1.0)");
+      self.canvas.drawCanvas('grayscale(1.0)');
     };
   }
 
@@ -156,9 +176,28 @@ class Filters {
     const self = this;
     const sepiaButton = document.getElementById('sepia');
     sepiaButton.onclick = function() {
-      self.canvas.drawCanvas("sepia(0.8)");
+      self.canvas.drawCanvas('sepia(0.8)');
     };
   }
+
+  contrastSlider() {
+    const self = this;
+    const contrastSlider = document.getElementById('contrast');
+    contrastSlider.onchange = function(e) {
+      console.log(e.target.value);
+      self.canvas.drawCanvas(`contrast(${e.target.value}%)`);
+    };
+  }
+
+  brightnessSlider() {
+    const self = this;
+    const brightnessSlider = document.getElementById('brightness');
+    brightnessSlider.onchange = function(e) {
+      console.log(e.target.value);
+      self.canvas.drawCanvas(`brightness(${e.target.value}%)`);
+    };
+  }
+
 }
 
 /* harmony default export */ __webpack_exports__["a"] = (Filters);
