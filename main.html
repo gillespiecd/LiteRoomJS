@@ -9,6 +9,10 @@
       <div class="main">
 
         <section class="left-col">
+          <a id="download-link" download="image.png" href="#">
+            <button>Download Image</button>
+          </a>
+          <button id="reset-btn">Reset Filters</button>
         </section>
 
         <section class="mid-col">
@@ -18,19 +22,16 @@
           </form>
           <button value="Upload">Upload Image</button>
           <canvas id="canvas-image" width="800" height="600"></canvas>
-          <a id="download-link" download="image.png" href="#"><button>Download Image</button></a>
         </section>
 
         <section class="right-col">
-          <h2>Filters</h2>
-            <input id="grayscale" type="range" value="0"
-              min="0" max="100">Grayscale</input>
-            <input id="sepia" type="range" value="0"
-              min="0" max="100">Sepia</input>
+            <input id="grayscale" type="range" min="0" max="100">Grayscale</input>
+            <input id="sepia" type="range" min="0" max="100">Sepia</input>
             <input id="contrast" type="range" min="0" max="100">Contrast</input>
             <input id="brightness" type="range" min="0" max="100">Brightness</input>
             <input id="saturation" type="range" min="0" max="100">Saturation</input>
-            <button id="reset-btn">Reset Filters</button>
+            <input id="opacity" type="range" min="0" max="100">Opacity</input>
+            <input id="invert" type="range" min="0" max="100">Invert</input>
         </section>
 
       </div>

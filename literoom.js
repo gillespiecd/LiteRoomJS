@@ -102,9 +102,17 @@ class ImageCanvas {
     const resetButton = document.getElementById('reset-btn');
     const self = this;
     resetButton.onclick = function() {
-      self.filters = "";
+      self.filters = {};
+      self.resetSliders();
       self.drawCanvas();
     };
+  }
+
+  resetSliders() {
+    let ranges = document.querySelectorAll('input[type="range"]');
+    for (let i = 0; i < ranges.length; i++) {
+      ranges[i].value = "50";
+    }
   }
 
   drawCanvas(filter = "") {
@@ -173,13 +181,14 @@ class Filters {
     this.grayscaleSlider();
     this.sepiaSlider();
     this.saturationSlider();
+    this.opacitySlider();
+    this.invertSlider();
   }
 
   applySlider(filter) {
-    console.log(filter);
     const self = this;
     const filterSlider = document.getElementById(filter);
-    filterSlider.onchange = function(e) {
+      filterSlider.onchange = function(e) {
       self.canvas.drawCanvas(`${filter}(${e.target.value}%)`);
     };
   }
@@ -202,6 +211,14 @@ class Filters {
 
   saturationSlider() {
     this.applySlider('saturation');
+  }
+
+  opacitySlider() {
+    this.applySlider('opacity');
+  }
+
+  invertSlider() {
+    this.applySlider('invert');
   }
 
 }

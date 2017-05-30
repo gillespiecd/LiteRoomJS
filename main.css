@@ -56,7 +56,11 @@ body, section, div, h1, h2 {
 }
 
 .right-col input {
-  margin-top: 5px;
+  margin-top: 15px;
+}
+
+.right-col button {
+  margin-top: 15px;
 }
 
 /* canvas */
