@@ -77,9 +77,37 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 
-const defaultImg = document.getElementById('default-image');
-const canvas = new __WEBPACK_IMPORTED_MODULE_0__canvas__["a" /* default */](defaultImg);
-const filters = new __WEBPACK_IMPORTED_MODULE_1__filters__["a" /* default */](canvas);
+
+class LiteRoom {
+  constructor( ) {
+    this.image = document.getElementById('default-image');
+    this.canvas = new __WEBPACK_IMPORTED_MODULE_0__canvas__["a" /* default */](this.image);
+    this.filters = new __WEBPACK_IMPORTED_MODULE_1__filters__["a" /* default */](this.canvas);
+    this.uploadPhoto();
+  }
+
+  uploadPhoto() {
+    const imageUpload = document.getElementById('image-upload');
+    imageUpload.addEventListener('change', this.handleImage.bind(this), false);
+  }
+
+
+  handleImage(e) {
+    const self = this;
+    console.log(self);
+    const reader = new FileReader();
+    reader.onload = function(event) {
+      self.image.src = event.target.result;
+      self.canvas = new __WEBPACK_IMPORTED_MODULE_0__canvas__["a" /* default */](self.image);
+      self.filters = new __WEBPACK_IMPORTED_MODULE_1__filters__["a" /* default */](self.canvas);
+    };
+    reader.readAsDataURL(e.target.files[0]);
+  }
+
+
+}
+
+const literoom = new LiteRoom();
 
 
 /***/ }),
@@ -113,7 +141,6 @@ class ImageCanvas {
     const undoButton = document.getElementById('undo-btn');
     const self = this;
     undoButton.onclick = function() {
-      console.log("Test");
       self.ctx.restore();
     };
   }
@@ -129,10 +156,8 @@ class ImageCanvas {
     const imageObj = new Image();
     var self = this;
     imageObj.onload = function() {
-      const width = self.image.naturalHeight;
-      const height = self.image.naturalWidth;
-      self.ctx.canvas.width  = width / 2;
-      self.ctx.canvas.height = height / 2;
+      self.canvas.width  = imageObj.width;
+      self.canvas.height = imageObj.height;
       self.applyFilter(imageObj, filter);
       self.ctx.save();
     };
