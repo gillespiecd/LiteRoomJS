@@ -81,11 +81,6 @@ const defaultImg = document.getElementById('default-image');
 const canvas = new __WEBPACK_IMPORTED_MODULE_0__canvas__["a" /* default */](defaultImg);
 const filters = new __WEBPACK_IMPORTED_MODULE_1__filters__["a" /* default */](canvas);
 
-const downloadButton = document.getElementById('download');
-downloadButton.onclick = function() {
-  canvas.downloadImage();
-};
-
 
 /***/ }),
 /* 1 */
@@ -98,6 +93,7 @@ class ImageCanvas {
     this.canvas = document.querySelector('canvas');
     this.ctx = this.canvas.getContext('2d');
     this.drawCanvas();
+    this.downloadImage();
   }
 
   drawCanvas(filter = "") {
@@ -111,12 +107,20 @@ class ImageCanvas {
       self.ctx.filter = filter;
       self.ctx.drawImage(imageObj, 0, 0);
     };
+    imageObj.crossOrigin = 'anonymous';
     imageObj.src = this.image.src;
   }
 
+
   downloadImage() {
-    const link = this.canvas.toDataURL('image/jpeg');
-    this.href = link;
+    const downloadLink = document.getElementById('download-link');
+    const self = this;
+
+    downloadLink.onclick = function() {
+      const dataURL = self.canvas.toDataURL('image/png');
+      downloadLink.href = dataURL;
+    };
+
   }
 
 }
