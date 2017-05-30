@@ -9,8 +9,8 @@
       <div class="main">
         <section class="left-col">
           <h2>Filters</h2>
-          <button value="BW">Black and White</button>
-          <button value="Sepia">Sepia</button>
+          <button id="black-white">Black and White</button>
+          <button id="sepia">Sepia</button>
           <button value="Cyanotype">Cyanotype</button>
         </section>
         <section class="mid-col">
@@ -20,17 +20,21 @@
           </form>
           <button value="Upload">Upload Image</button>
           <canvas id="canvas-image" width="800" height="600"></canvas>
+          <button id="download">Download</button>
         </section>
         <section class="right-col">
           <h2>Sliders</h2>
-          <input type="range">Contrast</input>
-          <input type="range">Brightness</input>
-          <input type="range">Saturation</input>
+          <form class="right-col">
+            <input type="range">Contrast</input>
+            <input type="range">Brightness</input>
+            <input type="range">Saturation</input>
+            <input type="reset">
+          </form>
         </section>
       </div>
   </body>
   <footer>
-    <img id="default-image" hidden src="http://res.cloudinary.com/dn1agy1ea/image/upload/v1496105546/71t-ACpwDjL_trsogh.jpg"</img>
+    <img id="default-image" crossOrigin="Anonymous" hidden src="http://res.cloudinary.com/dn1agy1ea/image/upload/v1496105546/71t-ACpwDjL_trsogh.jpg"</img>
     <script type="application/javascript" src="literoom.js"></script>
   </footer>
 </html>

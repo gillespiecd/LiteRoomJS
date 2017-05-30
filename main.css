@@ -55,8 +55,14 @@ body, section, div, h1, h2 {
   margin-top: 10px;
 }
 
+.right-col input {
+  margin-top: 5px;
+}
+
+/* canvas */
+
 #canvas-image {
   border: 1px solid black;
-  padding: 2px;
-  margin: 20px;
+  padding: 1px;
+  margin: 10px;
 }

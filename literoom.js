@@ -68,27 +68,96 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, exports) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-const canvas = document.querySelector('canvas');
-const ctx = canvas.getContext('2d');
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__canvas__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__filters__ = __webpack_require__(2);
+
+
+
 const defaultImg = document.getElementById('default-image');
+const canvas = new __WEBPACK_IMPORTED_MODULE_0__canvas__["a" /* default */](defaultImg);
+const filters = new __WEBPACK_IMPORTED_MODULE_1__filters__["a" /* default */](canvas);
 
-var imageObj = new Image();
-imageObj.onload = function() {
-  console.log(defaultImg);
-  const width = defaultImg.naturalHeight;
-  const height = defaultImg.naturalWidth;
-  // ctx.canvas.width  = width;
-  // ctx.canvas.height = height;
-  ctx.drawImage(imageObj, 0, 0);
+const downloadButton = document.getElementById('download');
+downloadButton.onclick = function() {
+  canvas.downloadImage();
 };
 
-// const calcSize = () => {
-//
-// }
 
-imageObj.src = 'http://res.cloudinary.com/dn1agy1ea/image/upload/v1496105546/71t-ACpwDjL_trsogh.jpg';
+/***/ }),
+/* 1 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+class ImageCanvas {
+  constructor(image) {
+    this.image = image;
+    this.canvas = document.querySelector('canvas');
+    this.ctx = this.canvas.getContext('2d');
+    this.drawCanvas();
+  }
+
+  drawCanvas(filter = "") {
+    const imageObj = new Image();
+    var self = this;
+    imageObj.onload = function() {
+      const width = self.image.naturalHeight;
+      const height = self.image.naturalWidth;
+      self.ctx.canvas.width  = width / 2;
+      self.ctx.canvas.height = height / 2;
+      self.ctx.filter = filter;
+      self.ctx.drawImage(imageObj, 0, 0);
+    };
+    imageObj.src = this.image.src;
+  }
+
+  downloadImage() {
+    const link = this.canvas.toDataURL('image/jpeg');
+    this.href = link;
+  }
+
+}
+
+/* harmony default export */ __webpack_exports__["a"] = (ImageCanvas);
+
+
+/***/ }),
+/* 2 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+class Filters {
+  constructor(canvas) {
+    this.canvas = canvas;
+    this.addListeners();
+  }
+
+  addListeners() {
+    this.blackWhiteButton();
+    this.sepiaButton();
+  }
+
+  blackWhiteButton() {
+    const self = this;
+    const blackWhiteButton = document.getElementById('black-white');
+    blackWhiteButton.onclick = function() {
+      self.canvas.drawCanvas("grayscale(1.0)");
+    };
+  }
+
+  sepiaButton() {
+    const self = this;
+    const sepiaButton = document.getElementById('sepia');
+    sepiaButton.onclick = function() {
+      self.canvas.drawCanvas("sepia(0.8)");
+    };
+  }
+}
+
+/* harmony default export */ __webpack_exports__["a"] = (Filters);
 
 
 /***/ })
