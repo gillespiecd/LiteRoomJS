@@ -22,7 +22,7 @@ MVP functionality includes common use cases such as:
 
 LiteRoomJS plans to implement core image edit functionality using:
 
-- Vanilla JavaScript and `jquery` for slider, button, and filter logic
+- Vanilla JavaScript for slider, button, and filter logic
 - `HTML5 Canvas` to manipulate image color, orientation, and aesthetic.
 - `HTML5 Canvas` as image CRUD source.
 - Webpack to bundle and serve up JS files.

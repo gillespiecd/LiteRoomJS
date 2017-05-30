@@ -96,6 +96,7 @@ class ImageCanvas {
     this.drawCanvas();
     this.downloadImage();
     this.resetCanvas();
+    this.undoAction();
   }
 
   resetCanvas() {
@@ -105,6 +106,15 @@ class ImageCanvas {
       self.filters = {};
       self.resetSliders();
       self.drawCanvas();
+    };
+  }
+
+  undoAction() {
+    const undoButton = document.getElementById('undo-btn');
+    const self = this;
+    undoButton.onclick = function() {
+      console.log("Test");
+      self.ctx.restore();
     };
   }
 
