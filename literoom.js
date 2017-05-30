@@ -92,7 +92,7 @@ class ImageCanvas {
     this.image = image;
     this.canvas = document.querySelector('canvas');
     this.ctx = this.canvas.getContext('2d');
-    this.filters = "";
+    this.filters = {};
     this.drawCanvas();
     this.downloadImage();
     this.resetCanvas();
@@ -115,7 +115,6 @@ class ImageCanvas {
       const height = self.image.naturalWidth;
       self.ctx.canvas.width  = width / 2;
       self.ctx.canvas.height = height / 2;
-      // apply filters
       self.applyFilter(imageObj, filter);
       self.ctx.save();
     };
@@ -123,10 +122,21 @@ class ImageCanvas {
     imageObj.src = this.image.src;
   }
 
+  updateFilters(filter) {
+    const filterName = filter.match(/\w+/)[0];
+    const filterValue = filter.match(/\d+/)[0];
+    this.filters[filterName] = filterValue;
+    let filterString = "";
+    for (var key in this.filters) {
+      filterString += ` ${key}(${this.filters[key]}%)`;
+    }
+    this.ctx.filter = filterString;
+  }
+
   applyFilter(img, filter) {
-    this.filters += ` ${filter}`;
-    this.ctx.filter = this.filters;
-    console.log(this.filters);
+    if (filter) {
+      this.updateFilters(filter);
+    }
     this.ctx.drawImage(img, 0, 0);
   }
 
@@ -158,44 +168,40 @@ class Filters {
   }
 
   addListeners() {
-    this.blackWhiteButton();
-    this.sepiaButton();
     this.contrastSlider();
     this.brightnessSlider();
+    this.grayscaleSlider();
+    this.sepiaSlider();
+    this.saturationSlider();
   }
 
-  blackWhiteButton() {
+  applySlider(filter) {
+    console.log(filter);
     const self = this;
-    const blackWhiteButton = document.getElementById('black-white');
-    blackWhiteButton.onclick = function() {
-      self.canvas.drawCanvas('grayscale(1.0)');
+    const filterSlider = document.getElementById(filter);
+    filterSlider.onchange = function(e) {
+      self.canvas.drawCanvas(`${filter}(${e.target.value}%)`);
     };
   }
 
-  sepiaButton() {
-    const self = this;
-    const sepiaButton = document.getElementById('sepia');
-    sepiaButton.onclick = function() {
-      self.canvas.drawCanvas('sepia(0.8)');
-    };
+  grayscaleSlider() {
+    this.applySlider('grayscale');
+  }
+
+  sepiaSlider() {
+    this.applySlider('sepia');
   }
 
   contrastSlider() {
-    const self = this;
-    const contrastSlider = document.getElementById('contrast');
-    contrastSlider.onchange = function(e) {
-      console.log(e.target.value);
-      self.canvas.drawCanvas(`contrast(${e.target.value}%)`);
-    };
+    this.applySlider('contrast');
   }
 
   brightnessSlider() {
-    const self = this;
-    const brightnessSlider = document.getElementById('brightness');
-    brightnessSlider.onchange = function(e) {
-      console.log(e.target.value);
-      self.canvas.drawCanvas(`brightness(${e.target.value}%)`);
-    };
+    this.applySlider('brightness');
+  }
+
+  saturationSlider() {
+    this.applySlider('saturation');
   }
 
 }
