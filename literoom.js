@@ -124,6 +124,7 @@ class ImageCanvas {
     this.downloadImage();
     this.resetCanvas();
     this.undoAction();
+    // this.calculateCanvasSize();
     this.resized = false;
   }
 
@@ -132,6 +133,7 @@ class ImageCanvas {
     const self = this;
     resetButton.onclick = function() {
       self.filters = {};
+      self.ctx.filters = "";
       self.resetSliders();
       self.drawCanvas();
     };
@@ -152,22 +154,30 @@ class ImageCanvas {
     }
   }
 
-  calculateCanvasSize(img) {
-    const ratio = Math.ceil(img.height / this.canvas.height);
-    if ((img.height > this.canvas.height) && !this.resized) {
-      this.resized = true;
-      this.canvas.width  = img.width / ratio;
-      this.canvas.height = img.height / ratio;
-    }
-  }
+  // calculateCanvasSize(img) {
+  //   const ratio = Math.ceil(img.height / this.canvas.height);
+  //   if (img.height > this.canvas.height) {
+  //     this.canvas.width  = img.width / ratio;
+  //     this.canvas.height = img.height / ratio;
+  //   } else {
+  //     this.canvas.width = img.width;
+  //     this.canvas.height = img.height;
+  //   }
+  //   this.resized = true;
+  // }
 
   drawCanvas(filter = "") {
     const imageObj = new Image();
-    var self = this;
+    const self = this;
     imageObj.onload = function() {
-      self.calculateCanvasSize(imageObj);
+      if (imageObj.height > self.canvas.height) {
+        self.canvas.width  = imageObj.width / 2;
+        self.canvas.height = imageObj.height / 2;
+      } else {
+        self.canvas.width = imageObj.width;
+        self.canvas.height = imageObj.height;
+      }
       self.applyFilter(imageObj, filter);
-      self.ctx.save();
     };
     imageObj.crossOrigin = 'anonymous';
     imageObj.src = this.image.src;
@@ -188,8 +198,7 @@ class ImageCanvas {
     if (filter) {
       this.updateFilters(filter);
     }
-    this.ctx.drawImage(img, 0, 0, img.width, img.height,
-                      0, 0, this.canvas.width, this.canvas.height);
+    this.ctx.drawImage(img, 0, 0, this.canvas.width, this.canvas.height);
   }
 
   downloadImage() {
@@ -224,7 +233,7 @@ class Filters {
     this.brightnessSlider();
     this.grayscaleSlider();
     this.sepiaSlider();
-    this.saturationSlider();
+    this.saturateSlider();
     this.opacitySlider();
     this.invertSlider();
   }
@@ -253,8 +262,8 @@ class Filters {
     this.applySlider('brightness');
   }
 
-  saturationSlider() {
-    this.applySlider('saturation');
+  saturateSlider() {
+    this.applySlider('saturate');
   }
 
   opacitySlider() {

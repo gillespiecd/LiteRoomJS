@@ -2,23 +2,26 @@
   <head>
     <title>LiteRoomJS</title>
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link href="http://cdn.muicss.com/mui-0.9.16/css/mui.min.css" rel="stylesheet" type="text/css" />
+    <script src="http://cdn.muicss.com/mui-0.9.16/js/mui.min.js"></script>
     <link rel="stylesheet" href="index.css">
   </head>
 
   <body>
       <h1 class="title">LiteRoomJS</h1>
+      <h2 class="subtitle">Upload, edit, and download your favorite images.</h2>
       <div class="main">
 
         <section class="left-col">
           <a id="download-link" download="image.png" href="#">
-            <button>Download Image</button>
+            <button class="mui-btn mui-btn--flat mui-btn--primary">Download Image</button>
           </a>
-          <button id="undo-btn">Undo Action</button>
-          <button id="reset-btn">Reset Filters</button>
+          <button id="undo-btn" class="mui-btn mui-btn--flat mui-btn--primary">Undo Action</button>
+          <button id="reset-btn" class="mui-btn mui-btn--flat mui-btn--primary">Reset Filters</button>
         </section>
 
         <section class="mid-col">
-            <input type="file" id="image-upload" name="imageUpload"/>
+          <input type="file" id="image-upload" name="imageUpload"/>
           <canvas id="canvas-image" width="800" height="600"></canvas>
         </section>
 
@@ -27,7 +30,7 @@
             <input id="sepia" type="range" min="0" max="100">Sepia</input>
             <input id="contrast" type="range" min="0" max="100">Contrast</input>
             <input id="brightness" type="range" min="0" max="100">Brightness</input>
-            <input id="saturation" type="range" min="0" max="100">Saturation</input>
+            <input id="saturate" type="range" min="0" max="100">Saturate</input>
             <input id="opacity" type="range" min="0" max="100">Opacity</input>
             <input id="invert" type="range" min="0" max="100">Invert</input>
         </section>

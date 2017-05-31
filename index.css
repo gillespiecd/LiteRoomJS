@@ -18,6 +18,11 @@ h1 {
   font-size: 35px;
 }
 
+h2 {
+  font-size: 20px;
+  font-style: oblique;
+}
+
 
 .main {
   display: flex;
@@ -39,7 +44,6 @@ h1 {
 
 .left-col button {
   margin-top: 15px;
-  padding: 10px;
 }
 
 /* mid col */
@@ -50,9 +54,8 @@ h1 {
   flex-direction: column;
 }
 
-.image-upload {
-  display: flex;
-  justify-content: center;
+#image-upload {
+  margin-left: 30%;
 }
 
 /* right col */
@@ -63,7 +66,7 @@ h1 {
   flex-direction: column;
 }
 
-.title {
+.title, .subtitle {
   display: flex;
   justify-content: center;
   margin-bottom: 20px;
@@ -84,4 +87,24 @@ h1 {
   border: 1px solid black;
   padding: 1px;
   margin: 10px;
+}
+
+
+#reset-btn {
+  margin-left: 0px;
+}
+
+
+/* sliders */
+
+input[type='range'] {
+    -webkit-appearance: none !important;
+    background: lightgray;
+    height:7px;
+}
+input[type='range']::-webkit-slider-thumb {
+    -webkit-appearance: none !important;
+    background: darkblue;
+    height:10px;
+    width:10px;
 }
