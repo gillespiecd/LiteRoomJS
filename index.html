@@ -2,6 +2,7 @@
   <head>
     <title>LiteRoomJS</title>
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet" />
     <link href="http://cdn.muicss.com/mui-0.9.16/css/mui.min.css" rel="stylesheet" type="text/css" />
     <script src="http://cdn.muicss.com/mui-0.9.16/js/mui.min.js"></script>
     <link rel="stylesheet" href="index.css">
@@ -14,18 +15,20 @@
 
         <section class="left-col">
           <a id="download-link" download="image.png" href="#">
-            <button class="mui-btn mui-btn--flat mui-btn--primary">Download Image</button>
+            <button class="mui-btn mui-btn--primary">Download Image</button>
           </a>
           <button id="rotate-right" class="mui-btn mui-btn--flat mui-btn--primary">Rotate Right</button>
         </section>
 
         <section class="mid-col">
-          <input type="file" id="image-upload" name="imageUpload"/>
-          <canvas id="canvas-image" width="800" height="600"></canvas>
+          <label for="image-upload" class="custom-file-upload">
+            <i class="fa fa-cloud-upload"></i> UPLOAD PHOTO
+          </label>
+          <input id="image-upload" type="file"/>
+          <canvas id="canvas-image" width="1200" height="1000"></canvas>
         </section>
 
         <section class="right-col">
-            <button id="undo-btn" class="mui-btn mui-btn--flat mui-btn--primary">Undo Action</button>
             <input id="grayscale" type="range" min="0" max="100">Grayscale</input>
             <input id="sepia" type="range" min="0" max="100">Sepia</input>
             <input id="contrast" type="range" min="0" max="100">Contrast</input>
@@ -33,12 +36,14 @@
             <input id="saturate" type="range" min="0" max="100">Saturate</input>
             <input id="opacity" type="range" min="0" max="100">Opacity</input>
             <input id="invert" type="range" min="0" max="100">Invert</input>
-            <button id="reset-btn" class="mui-btn mui-btn--flat mui-btn--primary">Reset Filters</button>
+            <button id="reset-btn" class="mui-btn mui-btn--danger">Reset Filters</button>
         </section>
 
       </div>
   </body>
   <footer>
+    <p>Made by <a href="https://www.github.com/gillespiecd/literoomjs">
+      gillespiecd.</a></p>
     <img id="default-image" crossOrigin="Anonymous" hidden src="http://res.cloudinary.com/dn1agy1ea/image/upload/v1496105546/71t-ACpwDjL_trsogh.jpg"</img>
     <script type="application/javascript" src="literoom.js"></script>
   </footer>

@@ -1,6 +1,6 @@
 /* resets */
 
-body, section, div, h1, h2 {
+body, section, div, h1, h2, footer {
   margin:0;
   padding: 0;
   border: 0;
@@ -10,16 +10,17 @@ body, section, div, h1, h2 {
   background: transparent;
 }
 
-body, button, input {
+body, button, input, i, label {
   font-family: 'Roboto', sans-serif;
 }
 
 h1 {
-  font-size: 35px;
+  margin-top: 10px;
+  font-size: 40px;
 }
 
 h2 {
-  font-size: 20px;
+  font-size: 25px;
   font-style: oblique;
 }
 
@@ -35,8 +36,7 @@ h2 {
 /* left col */
 
 .left-col {
-  margin-left: 5%;
-  margin-right: 20px;
+  margin-right: 50px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -49,34 +49,46 @@ h2 {
 /* mid col */
 
 .mid-col {
-  margin-right: 20px;
+  margin-right: 50px;
   display: flex;
   flex-direction: column;
 }
 
-.mid-col input {
-  padding: 10px;
-  cursor: pointer;
+input[type="file"] {
+    display: none;
 }
 
-#image-upload {
-  margin-left: 30%;
+.fa-cloud-upload {
+  margin-right: 5px;
+}
+
+.custom-file-upload {
+  border: 1px solid black;
+  display: flex;
+  color: #FFF;
+  background-color: #39a1f4;
+  justify-content: center;
+  font-size: 15px;
+  margin-left: 20%;
+  width: 50%;
+  padding: 6px 12px;
+  cursor: pointer;
+  margin-bottom: 20px;
 }
 
 /* right col */
 
 .right-col {
-  margin-right: 5%;
   display: flex;
   flex-direction: column;
   font-size: 15px;
 }
 
 .title, .subtitle {
-  display: flex;
   justify-content: center;
+  display: flex;
   margin-bottom: 20px;
-  margin-top: 10px;
+  margin-top: 20px;
 }
 
 .right-col input {
@@ -85,6 +97,19 @@ h2 {
 
 .right-col button {
   margin-top: 15px;
+}
+
+/* footer */
+footer {
+  margin-top: 50px;
+  margin-bottom: 20px;
+  flex-direction: row;
+  display: flex;
+  justify-content: center;
+}
+
+footer p {
+  font-size: 15px;
 }
 
 /* canvas */
@@ -100,11 +125,15 @@ h2 {
   margin-left: 0px;
 }
 
+.github {
+  display: flex;
+  align-items: flex-end;
+}
+
 
 /* sliders
 credit to http://www.cssportal.com/style-input-range/
 */
-
 
 input[type=range] {
   height: 20px;

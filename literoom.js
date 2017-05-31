@@ -125,8 +125,6 @@ class ImageCanvas {
     this.drawCanvas();
     this.downloadImage();
     this.resetCanvas();
-    this.undoAction();
-    this.rotateRight();
   }
 
   resetCanvas() {
@@ -140,25 +138,6 @@ class ImageCanvas {
     };
   }
 
-  rotateRight() {
-    const rotateRightButton = document.getElementById('rotate-right');
-    const self = this;
-    rotateRightButton.onclick = function() {
-      self.rotation += 90;
-      self.ctx.translate(self.canvas.width/2,self.canvas.height/2);
-      self.ctx.rotate(self.rotation*Math.PI/180);
-      self.ctx.drawImage(self.image, -self.image.width / 2, -self.image.height / 2);
-      self.ctx.translate(-self.canvas.width/2,-self.canvas.height/2);
-    };
-  }
-
-  undoAction() {
-    const undoButton = document.getElementById('undo-btn');
-    const self = this;
-    undoButton.onclick = function() {
-      self.ctx.restore();
-    };
-  }
 
   resetSliders() {
     let ranges = document.querySelectorAll('input[type="range"]');
