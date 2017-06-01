@@ -130,12 +130,11 @@ class ImageCanvas {
 
   resetCanvas() {
     const resetButton = document.getElementById('reset-btn');
-    const self = this;
-    resetButton.onclick = function() {
-      self.filters = {};
-      self.ctx.filters = "";
-      self.resetSliders();
-      self.drawCanvas();
+    resetButton.onclick = () => {
+      this.filters = {};
+      this.ctx.filters = "";
+      this.resetSliders();
+      this.drawCanvas();
     };
   }
 
@@ -165,7 +164,7 @@ class ImageCanvas {
   drawCanvas(filter = "") {
     const imageObj = new Image();
     imageObj.crossOrigin = 'anonymous';
-    imageObj.src = self.canvas ? self.canvas.toDataURL() : this.image.src;
+    imageObj.src = this.image.src;
     imageObj.onload = () => {
       this.calculateCanvas();
       this.applyFilter(imageObj, filter);
@@ -176,20 +175,17 @@ class ImageCanvas {
   // create copy of existing image and redraw with new dimensions
   rotate() {
     const rotateButton = document.getElementById("rotate-image");
-    const self = this;
     let newImage;
-    rotateButton.onclick = function() {
-      self.rotation = (self.rotation + 1) % 4;
+    rotateButton.onclick = () => {
       newImage = new Image();
-      newImage.src = self.canvas.toDataURL();
-      const scpe = self;
-      newImage.onload = function() {
-        const oldWidth = scpe.canvas.width;
-        scpe.canvas.width = scpe.canvas.height;
-        scpe.canvas.height = oldWidth;
-        scpe.ctx.translate(scpe.canvas.width, scpe.canvas.height / scpe.canvas.width);
-        scpe.ctx.rotate(Math.PI / 2);
-        scpe.ctx.drawImage(newImage, 0, 0);
+      newImage.src = this.canvas.toDataURL();
+      newImage.onload = () => {
+        const oldWidth = this.canvas.width;
+        this.canvas.width = this.canvas.height;
+        this.canvas.height = oldWidth;
+        this.ctx.translate(this.canvas.width, this.canvas.height / this.canvas.width);
+        this.ctx.rotate(Math.PI / 2);
+        this.ctx.drawImage(newImage, 0, 0);
       };
     };
   }
@@ -211,10 +207,9 @@ class ImageCanvas {
 
   downloadImage() {
     const downloadLink = document.getElementById('download-link');
-    const self = this;
 
-    downloadLink.onclick = function() {
-      const dataURL = self.canvas.toDataURL('image/png');
+    downloadLink.onclick = () => {
+      const dataURL = this.canvas.toDataURL('image/png');
       downloadLink.href = dataURL;
     };
 
