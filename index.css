@@ -24,7 +24,6 @@ h2 {
   font-style: oblique;
 }
 
-
 .main {
   display: flex;
   flex-direction: row;
@@ -76,19 +75,19 @@ input[type="file"] {
   margin-bottom: 20px;
 }
 
+.title, .subtitle {
+  justify-content: center;
+  display: flex;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
 /* right col */
 
 .right-col {
   display: flex;
   flex-direction: column;
   font-size: 15px;
-}
-
-.title, .subtitle {
-  justify-content: center;
-  display: flex;
-  margin-bottom: 20px;
-  margin-top: 20px;
 }
 
 .right-col input {
@@ -99,9 +98,14 @@ input[type="file"] {
   margin-top: 15px;
 }
 
+#reset-btn {
+  margin-left: 0px;
+}
+
 /* footer */
+
 footer {
-  margin-top: 50px;
+  margin-top: 30px;
   margin-bottom: 20px;
   flex-direction: row;
   display: flex;
@@ -118,16 +122,6 @@ footer p {
   border: 1px solid black;
   padding: 1px;
   margin: 10px;
-}
-
-
-#reset-btn {
-  margin-left: 0px;
-}
-
-.github {
-  display: flex;
-  align-items: flex-end;
 }
 
 
