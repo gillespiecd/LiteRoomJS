@@ -1,0 +1,213 @@
+/* resets */
+
+body, section, div, h1, h2, footer {
+  margin:0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+}
+
+body, button, input, i, label {
+  font-family: 'Roboto', sans-serif;
+}
+
+h1 {
+  margin-top: 10px;
+  font-size: 40px;
+}
+
+h2 {
+  font-size: 25px;
+  font-style: oblique;
+}
+
+.main {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  vertical-align: center;
+}
+
+/* left col */
+
+.left-col {
+  margin-right: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.left-col button {
+  margin-top: 15px;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.custom-file-upload {
+  display: flex;
+  color: #FFF;
+  background-color: #39a1f4;
+  justify-content: center;
+  font-size: 15px;
+  margin-left: 0%;
+  padding: 6px 12px;
+  cursor: pointer;
+  margin-bottom: 15px;
+}
+
+/* mid col */
+
+.mid-col {
+  margin-right: 50px;
+  display: flex;
+  flex-direction: column;
+}
+
+.title, .subtitle {
+  justify-content: center;
+  display: flex;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+/* right col */
+
+.right-col {
+  display: flex;
+  flex-direction: column;
+  font-size: 15px;
+}
+
+.right-col input {
+  margin-top: 15px;
+}
+
+.right-col button {
+  margin-top: 15px;
+}
+
+#reset-btn {
+  margin-left: 0px;
+}
+
+/* footer */
+
+footer {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+footer p {
+  font-size: 15px;
+}
+
+/* canvas */
+
+#canvas-image {
+  margin: 10px;
+}
+
+
+/* sliders
+credit to http://www.cssportal.com/style-input-range/
+*/
+
+input[type=range] {
+  height: 20px;
+  -webkit-appearance: none;
+  margin: 10px 0;
+  width: 100%;
+}
+input[type=range]:focus {
+  outline: none;
+}
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 11px;
+  cursor: pointer;
+  animate: 0.2s;
+  box-shadow: 1px 1px 1px #000000;
+  background: #74A9D8;
+  border-radius: 1px;
+  border: 0px solid #010101;
+}
+input[type=range]::-webkit-slider-thumb {
+  box-shadow: 1px 1px 1px #000031;
+  border: 1px solid #00001E;
+  height: 22px;
+  width: 22px;
+  border-radius: 15px;
+  background: #FFFFFF;
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -8px;
+}
+input[type=range]:focus::-webkit-slider-runnable-track {
+  background: #74A9D8;
+}
+input[type=range]::-moz-range-track {
+  width: 100%;
+  height: 11px;
+  cursor: pointer;
+  animate: 0.2s;
+  box-shadow: 1px 1px 1px #000000;
+  background: #74A9D8;
+  border-radius: 1px;
+  border: 0px solid #010101;
+}
+input[type=range]::-moz-range-thumb {
+  box-shadow: 1px 1px 1px #000031;
+  border: 1px solid #00001E;
+  height: 26px;
+  width: 26px;
+  border-radius: 15px;
+  background: #FFFFFF;
+  cursor: pointer;
+}
+input[type=range]::-ms-track {
+  width: 100%;
+  height: 11px;
+  cursor: pointer;
+  animate: 0.2s;
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+input[type=range]::-ms-fill-lower {
+  background: #74A9D8;
+  border: 0px solid #010101;
+  border-radius: 2px;
+  box-shadow: 1px 1px 1px #000000;
+}
+input[type=range]::-ms-fill-upper {
+  background: #74A9D8;
+  border: 0px solid #010101;
+  border-radius: 2px;
+  box-shadow: 1px 1px 1px #000000;
+}
+input[type=range]::-ms-thumb {
+  margin-top: 1px;
+  box-shadow: 1px 1px 1px #000031;
+  border: 1px solid #00001E;
+  height: 26px;
+  width: 26px;
+  border-radius: 15px;
+  background: #FFFFFF;
+  cursor: pointer;
+}
+input[type=range]:focus::-ms-fill-lower {
+  background: #74A9D8;
+}
+input[type=range]:focus::-ms-fill-upper {
+  background: #74A9D8;
+}
