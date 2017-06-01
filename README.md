@@ -9,19 +9,15 @@ Users can upload an image, edit it, and then export an edited version.
 
 ## Features
 Upload image from computer
-
 ![](/assets/images/original.png)
 
 Modify image with filters (grayscale, saturation, contrast, etc.)
-
 ![](/assets/images/edited.png)
 
 Download edited image locally
-
 ![](/assets/images/downloaded.png)
 
 Image rotation
-
 ![](/assets/images/rotated.png)
 
 ## Technology
