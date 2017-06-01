@@ -101,8 +101,9 @@ input[type="file"] {
 footer {
   margin-top: 20px;
   margin-bottom: 20px;
-  flex-direction: row;
+  flex-direction: column;
   display: flex;
+  align-items: center;
   justify-content: center;
 }
 
