@@ -45,34 +45,28 @@ h2 {
   margin-top: 15px;
 }
 
+input[type="file"] {
+    display: none;
+}
+
+.custom-file-upload {
+  display: flex;
+  color: #FFF;
+  background-color: #39a1f4;
+  justify-content: center;
+  font-size: 15px;
+  margin-left: 0%;
+  padding: 6px 12px;
+  cursor: pointer;
+  margin-bottom: 15px;
+}
+
 /* mid col */
 
 .mid-col {
   margin-right: 50px;
   display: flex;
   flex-direction: column;
-}
-
-input[type="file"] {
-    display: none;
-}
-
-.fa-cloud-upload {
-  margin-right: 5px;
-}
-
-.custom-file-upload {
-  border: 1px solid black;
-  display: flex;
-  color: #FFF;
-  background-color: #39a1f4;
-  justify-content: center;
-  font-size: 15px;
-  margin-left: 20%;
-  width: 50%;
-  padding: 6px 12px;
-  cursor: pointer;
-  margin-bottom: 20px;
 }
 
 .title, .subtitle {

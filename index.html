@@ -2,7 +2,6 @@
   <head>
     <title>LiteRoomJS</title>
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet" />
     <link href="https://cdn.muicss.com/mui-0.9.16/css/mui.min.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.muicss.com/mui-0.9.16/js/mui.min.js"></script>
     <link rel="stylesheet" href="index.css">
@@ -14,17 +13,17 @@
       <div class="main">
 
         <section class="left-col">
+          <label for="image-upload" class="custom-file-upload">
+            UPLOAD PHOTO
+          </label>
+          <input id="image-upload" type="file"/>
           <a id="download-link" download="image.png" href="#">
-            <button class="mui-btn mui-btn--primary">Download Image</button>
+            <button class="mui-btn mui-btn--accent">Download Image</button>
           </a>
           <button id="rotate-right" class="mui-btn mui-btn--flat mui-btn--primary">Rotate Right</button>
         </section>
 
         <section class="mid-col">
-          <label for="image-upload" class="custom-file-upload">
-            UPLOAD PHOTO
-          </label>
-          <input id="image-upload" type="file"/>
           <canvas id="canvas-image" width="1200" height="1000"></canvas>
         </section>
 
