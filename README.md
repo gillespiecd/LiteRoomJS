@@ -7,6 +7,17 @@ Users can upload an image, edit it, and then export an edited version.
 
 ![](/assets/images/ss_main.png)
 
+## Technology
+
+- HTML5 canvas to handle image state, filters, and display
+  1. `ctx.filter` handles filtering logic
+  2. `ctx.rotate` and `ctx.translate` to re-arrange canvas when rotating
+
+- Vanilla JS classes
+  1. `main.js` - initializes program with image (default or uploaded)
+  2. `canvas.js` - holds state of canvas, stores filter values, draws image
+  3. `filter.js` - callback functions to update image with new filter
+
 ## Features
 Upload image from computer
 ![](/assets/images/original.png)
@@ -19,18 +30,6 @@ Download edited image locally
 
 Image rotation
 ![](/assets/images/rotated.png)
-
-## Technology
-
-- HTML5 canvas to handle image state, filters, and display
-  1. `ctx.filter` handles filtering logic
-  2. `ctx.rotate` and `ctx.translate` to re-arrange canvas when rotating
-
-- Vanilla JS classes
-  1. `main.js` - initializes program with image (default or uploaded)
-  2. `canvas.js` - holds state of canvas, stores filter values, draws image
-  3. `filter.js` - callback functions to update image with new filter
-
 
 ## Code Examples
 

@@ -63,54 +63,11 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ 	return __webpack_require__(__webpack_require__.s = 2);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__canvas__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__filters__ = __webpack_require__(2);
-
-
-
-
-class LiteRoom {
-  constructor( ) {
-    this.image = document.getElementById('default-image');
-    this.canvas = new __WEBPACK_IMPORTED_MODULE_0__canvas__["a" /* default */](this.image);
-    this.filters = new __WEBPACK_IMPORTED_MODULE_1__filters__["a" /* default */](this.canvas);
-    this.uploadPhoto();
-  }
-
-  uploadPhoto() {
-    const imageUpload = document.getElementById('image-upload');
-    imageUpload.addEventListener('change', this.handleImage.bind(this), false);
-  }
-
-
-  handleImage(e) {
-    const self = this;
-    const reader = new FileReader();
-    reader.onload = function(event) {
-      self.image.src = event.target.result;
-      self.canvas = new __WEBPACK_IMPORTED_MODULE_0__canvas__["a" /* default */](self.image);
-      self.filters = new __WEBPACK_IMPORTED_MODULE_1__filters__["a" /* default */](self.canvas);
-    };
-    reader.readAsDataURL(e.target.files[0]);
-  }
-
-
-}
-
-const literoom = new LiteRoom();
-
-
-/***/ }),
-/* 1 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -140,9 +97,9 @@ class ImageCanvas {
 
 
   resetSliders() {
-    let ranges = document.querySelectorAll('input[type="range"]');
+    let ranges = document.querySelectorAll('input[type=range]');
     for (let i = 0; i < ranges.length; i++) {
-      ranges[i].value = "50";
+      ranges[i].value = 0;
     }
   }
 
@@ -221,7 +178,7 @@ class ImageCanvas {
 
 
 /***/ }),
-/* 2 */
+/* 1 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -280,6 +237,49 @@ class Filters {
 }
 
 /* harmony default export */ __webpack_exports__["a"] = (Filters);
+
+
+/***/ }),
+/* 2 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__canvas__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__filters__ = __webpack_require__(1);
+
+
+
+
+class LiteRoom {
+  constructor( ) {
+    this.image = document.getElementById('default-image');
+    this.canvas = new __WEBPACK_IMPORTED_MODULE_0__canvas__["a" /* default */](this.image);
+    this.filters = new __WEBPACK_IMPORTED_MODULE_1__filters__["a" /* default */](this.canvas);
+    this.uploadPhoto();
+  }
+
+  uploadPhoto() {
+    const imageUpload = document.getElementById('image-upload');
+    imageUpload.addEventListener('change', this.handleImage.bind(this), false);
+  }
+
+
+  handleImage(e) {
+    const self = this;
+    const reader = new FileReader();
+    reader.onload = function(event) {
+      self.image.src = event.target.result;
+      self.canvas = new __WEBPACK_IMPORTED_MODULE_0__canvas__["a" /* default */](self.image);
+      self.filters = new __WEBPACK_IMPORTED_MODULE_1__filters__["a" /* default */](self.canvas);
+    };
+    reader.readAsDataURL(e.target.files[0]);
+  }
+
+
+}
+
+const literoom = new LiteRoom();
 
 
 /***/ })
